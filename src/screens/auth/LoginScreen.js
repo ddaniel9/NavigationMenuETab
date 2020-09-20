@@ -1,9 +1,11 @@
 import React from 'react';
+import {TextLink} from '../../components/common';
 import { 
-    Dimensions,
+    Dimensions,TouchableOpacity,
     KeyboardAvoidingView, View, Button, Alert, Text, AsyncStorage, StyleSheet, TextInput
 } from 'react-native';
 import axios from 'axios';
+
 
 export default class LoginScreen extends React.Component {
 
@@ -21,10 +23,12 @@ export default class LoginScreen extends React.Component {
             spinner: false
         };
 
-        this._signInHandler = this._signInHandler.bind(this);
+        this._loginHandler = this._loginHandler.bind(this);
     }
 
-    _signInHandler = async () => {
+    goToSignup = () => this.props.navigation.navigate('Signup');
+
+    _loginHandler = async () => {
         const {email, password} = this.state;
 
         var formData = new FormData();
@@ -71,11 +75,6 @@ export default class LoginScreen extends React.Component {
         });
 
 
-  
-
-
-
-
         if (typeof response.data.token != "undefined") {
            
             await AsyncStorage.setItem("userToken", response.data.token);
@@ -110,9 +109,14 @@ export default class LoginScreen extends React.Component {
                     }
                     {!this.state.spinner &&
                         <Button
-                            title="Sign in!"
-                            onPress={this._signInHandler}
+                            title="Log in!"
+                            onPress={this._loginHandler}
                         />
+                    }
+                    {!this.state.spinner &&
+                    <TextLink onPress={this.goToSignup}>
+                    Go to Signup
+                    </TextLink>
                     }
                 </View>
             </KeyboardAvoidingView>
@@ -142,3 +146,4 @@ const style = StyleSheet.create({
         textAlign: 'center'
     },
 });
+

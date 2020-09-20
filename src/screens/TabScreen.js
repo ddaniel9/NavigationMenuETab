@@ -68,7 +68,7 @@ const TabHelper = createStackNavigator({
     TabScreen: {
       screen: TabScreen,
       navigationOptions: {
-        header: null,
+        headerShown: false,
       },
     },
   });
