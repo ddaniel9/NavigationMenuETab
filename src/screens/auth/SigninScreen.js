@@ -53,19 +53,19 @@ export default class SigninScreen extends React.Component {
                                 username: email
                             },)
                             .then((response) => {
-                            // Handle the JWT response here
-                            console.log(response.data.token);
-                            if (typeof response.data.token != "undefined") {
-           
-                                 AsyncStorage.setItem("userToken", response.data.token);
-                                 AsyncStorage.setItem("userName", response.data.username);
-                                this.props.navigation.navigate('App');
-                            }
-                            else {
-                                 Alert.alert('Error', response);
-                            } 
-                            //this.props.newJWT(response.data.token);
-                            //deviceStorage.saveKey("id_token", response.data.token);
+                                // Handle the JWT response here
+                                console.log(response.data.token);
+                                if (typeof response.data.token != "undefined") {
+            
+                                    AsyncStorage.setItem("userToken", response.data.token);
+                                    AsyncStorage.setItem("userName", response.data.username);
+                                    this.props.navigation.navigate('App');
+                                }
+                                else {
+                                    Alert.alert('Error', response);
+                                    this.onRegistrationFail(response,false);
+                                } 
+
                             })
                             .catch((error) => {
                             // Handle returned errors here
@@ -90,47 +90,7 @@ export default class SigninScreen extends React.Component {
         });
       }
       
-
-
-
-    
     goToLogin = () => this.props.navigation.navigate('Login');
-
-    // _loginHandler = async () => {
-    //     const {email, password} = this.state;
-
-    //     var formData = new FormData();
-    //     formData.append('email', email);
-    //     formData.append('password', password);
-
-    //     this.setState({spinner: true});
-
-    //     const response = await axios.post("https://fastassurance1111.herokuapp.com/users/authenticate",{
-    //         username: email,
-    //         password: password
-    //     })
-    //     .then((resp) => {
-    //         this.setState({spinner: false});
-    //         console.log(resp.data.token);
-    //         return resp;
-    //     })
-    //     .catch((error) => {
-    //         this.setState({spinner: false});
-    //          console.log(error);
-    //         throw error;
-    //     });
-
-
-    //     if (typeof response.data.token != "undefined") {
-           
-    //         await AsyncStorage.setItem("userToken", response.data.token);
-    //         await AsyncStorage.setItem("userName", response.data.username);
-    //         this.props.navigation.navigate('App');
-    //     }
-    //     else {
-    //          Alert.alert('Error', response);
-    //     }
-    // }
 
     render() {
         return (
