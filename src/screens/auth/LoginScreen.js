@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import axios from 'axios';
 
-export default class SigninScreen extends React.Component {
+export default class LoginScreen extends React.Component {
 
     static navigationOptions = {
         headerShown: false,

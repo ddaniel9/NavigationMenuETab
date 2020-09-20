@@ -25,7 +25,7 @@ import HomeScreen from './HomeScreen';
 import SettingScreen from './SettingScreen';
 import Profile from './Profile';
 import  TabScreen  from './TabScreen'
-import SignScreen from './auth/SigninScreen'
+import SignScreen from './auth/LoginScreen'
 
 
 

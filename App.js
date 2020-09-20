@@ -1,6 +1,6 @@
 import { TabScreen } from './src/screens/TabScreen'
 import  Menu2  from './src/screens/Menu'
-import SignScreen from './src/screens/auth/SigninScreen'
+import LoginScreen from './src/screens/auth/LoginScreen'
 import AuthLoadingScreen from './src/screens/AuthLoadingScreen'
 
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
@@ -9,7 +9,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 import StackCalendar from './src/screens/indexCalendar'
 //const AppStack = createStackNavigator({ TabScreen });
 const Menu = Menu2;
-const AuthStack = createStackNavigator({ Signin: SignScreen });
+const AuthStack = createStackNavigator({ Login: LoginScreen });
 
 export default createAppContainer(createSwitchNavigator(
   {
