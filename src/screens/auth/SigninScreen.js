@@ -34,7 +34,7 @@ export default class SigninScreen extends React.Component {
         this.setState({ error: '', spinner: true });
         
         // NOTE HTTP is insecure, only post to HTTPS in production apps
-        if(this.state.password==this.state.password_confirmation){
+        if(password==password_confirmation){
               axios.post("https://fastassurance1111.herokuapp.com/users/register",{
             
                 email: email,
@@ -78,7 +78,7 @@ export default class SigninScreen extends React.Component {
             this.onRegistrationFail('Registration Failed',false);
             });
         }else{
-            console.log(error);
+            console.log('Password Confirm is incorrect');
             this.onRegistrationFail('Password Confirm is incorrect',false);
         }
       }
