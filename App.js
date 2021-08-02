@@ -13,7 +13,7 @@ const Menu = Menu2;
 const AuthStack = createStackNavigator(
   { 
     Login: LoginScreen,
-    Signup: SigninScreen
+    Signup: SigninScreen 
   });
 
 export default createAppContainer(createSwitchNavigator(
